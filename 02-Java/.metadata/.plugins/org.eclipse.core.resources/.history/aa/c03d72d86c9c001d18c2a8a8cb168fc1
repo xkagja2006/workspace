@@ -1,0 +1,13 @@
+package com.ssafy;
+
+class MyException extends Exception{
+	
+}
+class MyRuntimeException extends RuntimeException{
+	
+}
+public class Test02 {
+	public static void main(String[] args) {
+
+	}
+}

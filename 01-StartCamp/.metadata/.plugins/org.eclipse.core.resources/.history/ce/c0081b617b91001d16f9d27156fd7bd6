@@ -1,0 +1,7 @@
+package com.ssafy.startcamp;
+
+public class Test06_배열요소확인 {
+	public static void main(String[] args) {
+		
+	}
+}

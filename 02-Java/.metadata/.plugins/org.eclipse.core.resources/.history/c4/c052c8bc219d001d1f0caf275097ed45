@@ -1,0 +1,30 @@
+/*
+ * 선택정렬
+ * 가장 작은 데이터를 찾아서 맨앞의 데이터와 체인지
+ * 3 5 2 9 6
+ * 
+ * 1단계
+ * 2 5 3 9 6
+ * 
+ * 2단계
+ * 2 3 5 9 6
+ * 
+ * 3단계
+ * 2 3 5 9 6
+ * 
+ * 4단계
+ * 2 3 5 6 9
+ * 
+ */
+package com.ssafy.day07;
+
+import java.util.Arrays;
+
+public class Test01_int직접정렬 {
+	public static void main(String[] args) {
+		int[] data = {4, 2, 8, 6, 9};
+		System.out.println("정렬 전 : " + Arrays.toString(data));
+		
+		for()
+	}
+}

@@ -1,0 +1,20 @@
+package com.ssafy.day06.exception;
+
+class 사장 {
+	public void 영업시작() {
+		
+	}
+}
+
+class 알바 {
+	public void work() {
+		
+	}
+}
+
+public class Test04 {
+	public static void main(String[] args) {
+
+	}
+
+}

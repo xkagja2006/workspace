@@ -1,0 +1,14 @@
+package com.ssafy.day06.exception;
+
+import java.util.Random;
+
+class LottoNumberException extends RuntimeException{
+	
+}
+
+public class Test08 {
+	public static void main(String[] args) {
+		Random r = new Random();
+		int num = r.nextInt(45) + 1;
+	}
+}

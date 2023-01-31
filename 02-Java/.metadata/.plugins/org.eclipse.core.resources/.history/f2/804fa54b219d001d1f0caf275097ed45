@@ -1,0 +1,14 @@
+/*
+ * 선택정렬
+ * 가장 작은 데이터를 찾아서 맨앞의 데이터와 체인지
+ * 3 5 2 9 6
+ * 
+ * 1단계
+ */
+package com.ssafy.day07;
+
+public class Test01_int직접정렬 {
+	public static void main(String[] args) {
+
+	}
+}

@@ -1,0 +1,56 @@
+package com.ssafy.startcamp;
+
+public class Test02_Switch {
+	public static void main(String[] args) {
+		/*
+		 * 수식 자리에 올 수 있는 것들 1.4 버전 : int로 자동 형변환 되는 것(byte, short, char, int) -> double
+		 * X 1.5 추가 : enum 1.7 추가 : String
+		 * 
+		 * switch(수식){
+		 * 
+		 * case 값: 처리할일; break;(선택) case 값: 처리할일; break;(선택) ....
+		 *
+		 * default: 처리할일;
+		 *
+		 */
+		{// result 변수 범위 설정을 위한 중괄효
+			System.out.println("1.4확인");
+			int num = 1;
+			int result = 0;
+			switch (num) {
+			case 1:
+				System.out.println("case1");
+				result += 1;
+			case 2:
+				System.out.println("case2");
+				result += 2;
+			default:
+				System.out.println("default");
+				result += -1;
+			case 3:
+				System.out.println("case3");
+				result += 3;
+			}
+			System.out.println(result);
+		}
+		{
+			String result = "";
+			System.out.println("1.7확인");
+			final String SEASON = "summer";
+			switch (SEASON) {
+			case 1:
+				System.out.println("case1");
+				result += 1;
+			case 2:
+				System.out.println("case2");
+				result += 2;
+			default:
+				System.out.println("default");
+				result += -1;
+			case 3:
+				System.out.println("case3");
+				result += 3;
+			}
+		}
+	}
+}

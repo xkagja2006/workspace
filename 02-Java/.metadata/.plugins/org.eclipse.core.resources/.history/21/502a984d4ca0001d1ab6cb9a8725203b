@@ -1,0 +1,70 @@
+package com.ssafy.day09;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.gson.Gson;
+
+class Food{
+	String name;
+	int price;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+}
+
+class User{
+	String id;
+	String pass;
+	List<Food> foods;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	public List<Food> getFoods() {
+		return foods;
+	}
+	public void setFoods(List<Food> foods) {
+		this.foods = foods;
+	}
+	
+}
+
+public class GsonTest {
+	public static void main(String[] args) {
+		Food f = new Food();
+		f.name = "빵";
+		f.price = 12000;
+		Food f2 = new Food();
+		f2.name = "감바스";
+		f2.price = 17000;
+		
+		User u1 = new User();
+		u1.id = "ssafy";
+		u1.pass = "1234";
+		u1.setFoods(Arrays.asList(f,f2));
+		
+		System.out.println(new Gson().toJson(u1));
+		
+	}
+}
+
+

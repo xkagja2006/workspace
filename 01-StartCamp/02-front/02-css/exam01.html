@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체선택자 *
+            *{
+                border: 2px solid sandybrown;
+            }
+        */
+        /* 
+            h2{
+                border: 2px solid sandybrown;
+            }
+        */
+        /* 클래스 속성의 값이 m5인 요소 선택
+        */
+        .m5 {
+            border: 2px solid salmon;
+        }
+        /* id속성의 값이 lang인 요소 선택 
+        */
+        #lang{
+            border-bottom: 3px solid seagreen;
+            width: 400px;
+        }
+         /* class=”a” 인 ul요소의 자식 요소 중 li 요소 선택
+          */
+         ul.m5>li{
+            margin: 2rem;
+            border: 1px solid salmon;
+            color: blue;
+         }
+        
+    </style>
+</head>
+<body>
+    <h2 id = "lang" class="m5">CSS 연습</h2>
+    <ul class="m5">
+        <li>java</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+
+    <ul>
+        <li>java</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+</body>
+</html>

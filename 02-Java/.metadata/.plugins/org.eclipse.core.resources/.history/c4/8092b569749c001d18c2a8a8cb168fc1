@@ -1,0 +1,8 @@
+package com.ssafy.day06.exception;
+
+public class Test04 {
+	public static void main(String[] args) {
+		
+	}
+
+}

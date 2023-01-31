@@ -1,0 +1,66 @@
+package com.ssafy.startcamp;
+
+import java.util.*;
+
+public class Test07_로또 {
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(lotto2()));
+	}
+
+	//이전에 뽑힌것과 비교해서 중복방지
+	static int[] lotto1() {
+		Random r = new Random();
+		int[] lotto = new int[6];
+		lotto[0] = r.nextInt(45) + 1; // 0 - 44
+
+		outer3: // 반복문의 이름을 붙일 수 있다! (이름 : for(){})
+		for (int i = 1; i < 6; i++) {
+			int num = r.nextInt(45) + 1; // 랜덤 수이기 때문에 중복발생가능
+			for (int j = 0; j < i; j++) {
+				if (num == lotto[j]) {
+					i--;
+					continue outer3; // 나머지 부분을 건너뛰고 원하는 반복문의 시작으로 이동
+				}
+				lotto[i] = num;
+			}
+		}
+		return lotto;
+	}
+
+	//1~45숫자 사용했는지 boolean 체크
+	static int[] lotto2() {
+		Random r = new Random();
+		int[] lotto = new int[6];
+		boolean[] used = new boolean[46]; // 초기화값 false
+
+		for (int i = 0; i < 6; i++) {
+			int num = r.nextInt(45) + 1; // 랜덤 수이기 때문에 중복발생가능
+			if(used[num]) {
+				i--;
+				continue;
+			}
+			used[num] = true;
+			lotto[i] = num;
+		}
+		return lotto;
+	}
+	
+	//정렬된 숫자 배열의 순서를 바꾸고 앞에서 6개의 숫자를 추출
+	static int[] lotto3() {
+		Random r = new Random();
+		int[] lotto = new int[6];
+		int[] numbers = new int[46];
+		
+		for(int i = 0; i < numbers.length; i++) {
+			numbers[i] = i;
+		}
+		for(int i = 0; i < 1000; i++) {
+			int rand = r.nextInt();
+			int tmp = numbers[1];
+			numbers[1] = numbers[rand];
+			numbers[rand] = tmp;
+			
+		}
+		return lotto;
+	}
+}

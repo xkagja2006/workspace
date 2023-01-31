@@ -1,0 +1,12 @@
+package com.ssafy.startcamp;
+
+public class Test05_다차원배열 {
+	public static void main(String[] args) {
+		int[][] arr = new int[3][];		//1차원배열은 생성되지 않아 널값으로 초기화됨.
+		System.out.println(arr.length);
+		System.out.println(arr[0]);	//널
+		System.out.println(arr[0].length);	//널포인트에러
+		
+		
+	}
+}

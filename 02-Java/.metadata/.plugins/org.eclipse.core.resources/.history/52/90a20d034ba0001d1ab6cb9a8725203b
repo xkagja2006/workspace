@@ -1,0 +1,20 @@
+package com.ssafy.day09;
+
+import java.util.List;
+
+class Food{
+	String name;
+	int price;
+}
+
+class User{
+	String id;
+	String pass;
+	List<Food> foods;
+}
+
+public class GsonTest {
+	public static void main(String[] args) {
+
+	}
+}

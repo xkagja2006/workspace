@@ -1,0 +1,11 @@
+package com.ssafy.day06.exception;
+
+class LottoNumberException extends RuntimeException{
+	
+}
+
+public class Test08 {
+	public static void main(String[] args) {
+		
+	}
+}

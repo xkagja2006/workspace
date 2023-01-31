@@ -1,0 +1,32 @@
+package com.ssafy.day07;
+
+public class Test03_DataComparable {
+	static class Data{
+		String name;
+		int age;
+		Data(String name, int age){
+			this.name = name;
+			this.age = age;
+		}
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return name + " , " + age;
+		}
+	}
+	public static void main(String[] args) {
+		// "a" < "b"
+		// "abcd" < "ac"
+		System.out.println("b".compareTo("b")); 	//0	
+		System.out.println("b".compareTo("c")); 	//-1
+		System.out.println("cc".compareTo("cbc")); 	//1
+		System.out.println("b".compareTo("가")); 	//-43934
+		
+		Data d1 = new Data("손흥민",30);
+		Data d2 = new Data("이병헌",48);
+		Data d3 = new Data("이민정",44);
+		Data d4 = new Data("기안84",35);
+		
+		Data[] arr = {d1, d2, d3, d4};
+	}
+}

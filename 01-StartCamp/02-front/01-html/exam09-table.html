@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>  
+    div{
+        background-color: bisque;
+    }
+    table, th, td{
+        border: 5px solid rgb(172, 126, 86);
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    th{
+        background-color: rgb(69, 100, 90);
+        color: rgb(247, 232, 211);
+    }
+    table{
+        width: 60%;
+        margin: auto;
+        text-align: center;
+    }
+    
+</style>
+<body>
+    <!-- 
+        table > thead, tbody, tfoot > tr > th, td
+     -->
+     <div>
+         <table>
+             <tr>
+                <th colspan="3">선수정보</th>
+             </tr>
+             <tr>
+                 <th>이름</th>
+                 <th>국적</th>
+                 <th>소속팀</th>
+             </tr>
+             <tr>
+                 <td>손흥민</td>
+                 <td rowspan="2">대한민국</td>
+                 <td>토트넘</td>
+             </tr>
+             <tr>
+                <td>이강인</td>
+                <!-- <td>대한민국</td> -->
+                <td>마요르카</td>
+            </tr>
+             <tr>
+                 <td>총인원</td>
+                 <td colspan="2">1명</td>
+             </tr>
+         </table>
+     </div>
+</body>
+</html>

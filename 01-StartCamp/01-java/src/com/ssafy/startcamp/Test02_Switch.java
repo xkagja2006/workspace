@@ -1,0 +1,83 @@
+package com.ssafy.startcamp;
+
+public class Test02_Switch {
+	public static void main(String[] args) {
+		/*
+		 * 수식 자리에 올 수 있는 것들 1.4 버전 : int로 자동 형변환 되는 것(byte, short, char, int) -> double
+		 * X 1.5 추가 : enum 1.7 추가 : String
+		 * 
+		 * switch(수식){
+		 * 
+		 * case 값: 처리할일; break;(선택) case 값: 처리할일; break;(선택) ....
+		 *
+		 * default: 처리할일;
+		 *
+		 */
+		{// result 변수 범위 설정을 위한 중괄효
+			System.out.println("1.4확인");
+			int num = 1;
+			int result = 0;
+			switch (num) {
+			case 1:
+				System.out.println("case1");
+				result += 1;
+			case 2:
+				System.out.println("case2");
+				result += 2;
+			default:
+				System.out.println("default");
+				result += -1;
+			case 3:
+				System.out.println("case3");
+				result += 3;
+			}
+			System.out.println(result);
+		}
+		{
+			String result = "";
+			System.out.println("1.7확인");
+			final String SEASON = "summer";
+			switch (SEASON) {
+			case "spring" :
+				result = "봄";
+				break;
+			case "summer":
+				result = "여름";
+				break;
+			case "fall":
+				result = "가을";
+				break;
+			case "winter":
+				result = "겨울";
+				break;
+			default:
+				result = "잘못된 입력";
+			}
+		}
+
+		{
+			String result = "";
+			System.out.println("1.5 enum 확인");
+			Season season = Season.SUMMER;
+			switch (season) {
+			case SPRING :
+				result = "봄";
+				break;
+			case SUMMER:
+				result = "여름";
+				break;
+			case FALL:
+				result = "가을";
+				break;
+			case WINTER:
+				result = "겨울";
+				break;
+			default:
+				result = "잘못된 입력";
+			}
+		}
+	}
+	enum Season{
+		SPRING, SUMMER, FALL, WINTER
+	}
+}

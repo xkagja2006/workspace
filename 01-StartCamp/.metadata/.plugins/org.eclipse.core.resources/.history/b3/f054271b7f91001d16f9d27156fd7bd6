@@ -1,0 +1,11 @@
+package com.ssafy.startcamp;
+
+public class Test07_혼자하는빙고 {
+	public static void main(String[] args) {
+		/*
+		 * 1. 랜덤한 5X5배열 주어짐
+		 * 2. 숫자를 입력하면 해당 수 *처리
+		 * 3. 5줄이 완성되면 빙고 외치고 종료
+		 */
+	}
+}

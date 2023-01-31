@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        form : 사용자의 입력을 받는 태그
+            input : 그 외 모든 입력 -> 속성(type)을 통해 어떤 방식으로 입력받을지 나타냄
+                type="text | password | radio | checkbox | file | button | reset | submit | hidden | date | number | color ..."
+            select : 드롭다운 선택
+            textarea : 긴 문장입력
+     -->
+     <form>
+         <div>
+            <label>input type = "text"</label>
+            <input type="text" name="msg">
+         </div>
+         <div>
+            <label>input type = "password"</label>
+            <input type="password" name="password">
+         </div>
+         <div>
+            <label>input type = "radio"</label>
+            <label><input type="radio">  남</label>
+         </div>
+         <div>
+            <label>input type = "checkbox"</label>
+            <input id="java" type="checkbox"> 
+            <label for="java">자바 </label>
+            <label><input type="checkbox"> SQL </label>
+            <label><input type="checkbox"> HTML </label>
+         </div>
+         <div>
+            <label>input type = "file"</label>
+            <input type="file">
+         </div>
+         <div>
+            <label>input type = "button"</label>
+            <input type="button" value="등록" onclick="alert('클릭됨')">
+            <button type="button" onclick="alert('클릭됨')">등록</button>
+         </div>
+         <div>
+            <label>input type = "reset"</label>
+            <input type="reset" value="초기화">
+            <button type="reset">초기화</button>
+         </div>
+         <div>
+            <label>input type = "submit"</label>
+            <input type="submit" value="가입">
+            <button type="submit">가입</button>
+         </div>
+         <div>
+            <label>input type = "hidden"</label>
+            <input type="hidden" name="mode" value="reg">
+         </div>
+    
+         <div>
+            <label>select</label>
+            <select>
+                <option>선택</option>
+                <option>자바</option>
+                <option>파이썬</option>
+            </select>
+         </div>
+         <div>
+            <label>textarea</label>
+            <textarea cols="30" rows="10"></textarea>
+         </div>
+     </form>
+</body>
+</html>

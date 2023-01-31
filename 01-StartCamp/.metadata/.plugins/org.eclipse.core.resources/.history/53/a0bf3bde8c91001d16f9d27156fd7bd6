@@ -1,0 +1,48 @@
+package com.ssafy.startcamp;
+import java.util.*;
+
+public class Problem01_혼자하는빙고 {
+	
+	static int bingoCheck(int[][] arr) {
+		int check = 0;
+		
+		return (check == 5 ? 1 : 0);
+	}
+	
+	public static void main(String[] args) {
+		/*
+		 * 1. 랜덤한 25개의 숫자배열을 만들고 이를 빙고판 배열에 넣는다.
+		 * 2. 숫자를 입력하면 해당 수 *처리
+		 * 3. 5줄이 완성되면 빙고 외치고 종료
+		 * 
+		 */
+		Random r = new Random();
+		int[] num = new int[25];
+		int idx = 0;
+		
+		//랜덤한 25개의 숫자 배열 만들기
+		final int MAX_NUMBER = 50;
+		int[] numbers = new int[50];
+		
+		for(int i = 0; i < numbers.length; i++) {
+			numbers[i] = i;
+		}
+		
+		for(int i = 0; i < 25; i++) {
+			int rand = r.nextInt(MAX_NUMBER-i);
+			num[i] = rand + 1;
+			numbers[rand] = numbers[MAX_NUMBER-i-1];
+		}
+		
+		System.out.println(Arrays.toString(num));
+		
+		//만들어진 배열을 빙고판에 넣기
+		String[][] arr = new String[5][5];
+		for(int i = 0; i < 5; i++) {
+			for(int j = 0; j < 5; j++) {
+				arr[i][j] = ""+num[idx++];
+			}
+		}
+		
+	}
+}

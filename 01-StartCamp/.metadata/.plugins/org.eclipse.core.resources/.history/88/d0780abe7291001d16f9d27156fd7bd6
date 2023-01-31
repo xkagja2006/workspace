@@ -1,0 +1,29 @@
+package com.ssafy.startcamp;
+
+class Ssafy{
+	String name;
+}
+
+public class Test04_배열의초기화 {
+	public static void main(String[] args) {
+		Ssafy s1;	//s1은 주소를 담는 변수!(클래스 변수니깐)
+		//System.out.println(s1);	//초기화에러남
+		s1 = new Ssafy();
+		System.out.println("s1 : " + s1);	//에러안남(new로 새로운 공간을 생성해 자동초기화됨)
+		
+		int arr[] = new int[3];	//생성과 동시에 자동초기화 -> 새로운 공간을 생성할때 자동으로 초기화함
+		//참조형은 자동초기화 null값.
+		//int형은 자동초기화 0
+		System.out.println(arr[1]);	//int형 자동초기화로 0이 출력됨
+		arr[1] = 100;
+		
+		Integer[] arr2 = new Integer[2];
+		System.out.println(arr2[0]);	//Integer형은 기본형이 아니므로 null로 자동초기화됨
+		
+		Ssafy arr3[] = new Ssafy[2];
+		System.out.println(arr3[1]);	//null값 출력.
+		
+		int arr4[][] = new int[3][];
+		System.out.println(arr4[0]);
+	}
+}

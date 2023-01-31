@@ -1,0 +1,22 @@
+package com.ssafy.startcamp;
+import java.util.*;
+
+public class Test07_혼자하는빙고 {
+	
+	static int bingoCheck(int[][] arr) {
+		int check = 0;
+		
+		return (check == 5 ? 1 : 0);
+	}
+	
+	public static void main(String[] args) {
+		/*
+		 * 1. 랜덤한 5X5배열 주어짐
+		 * 2. 숫자를 입력하면 해당 수 *처리
+		 * 3. 5줄이 완성되면 빙고 외치고 종료
+		 */
+		int[][] arr = new int[5][5];
+		
+		
+	}
+}

@@ -1,0 +1,31 @@
+package com.ssafy.day07.sort;
+
+@FunctionalInterface
+interface Parent01 {
+	void call(String msg);
+}
+
+public class Test05_Lamda {
+	static void test(Parent01 p) {
+		p.call("hello");
+	}
+
+	public static void main(String[] args) {
+
+		test( new Parent01() {
+			@Override
+			public void call(String msg) {
+				System.out.println(msg + ">>");
+			}
+		});
+
+		Parent 01 p = new Parent01() {
+			@Override
+			public void call(String msg) {
+				System.out.println(msg + "}}");
+			}
+		};
+
+		test(p);
+	}
+}

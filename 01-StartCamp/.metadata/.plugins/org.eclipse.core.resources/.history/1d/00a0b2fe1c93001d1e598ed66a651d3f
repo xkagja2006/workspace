@@ -1,0 +1,44 @@
+package com.ssafy.startcamp;
+import java.io.FileInputStream;
+import java.util.*;
+
+//[입력]
+//		 
+//
+//첫 번째 줄에 테스트 케이스의 수 T가 주어진다.
+// 
+//
+//각 테스트 케이스의 첫 번째 줄에는 재료의 수, 제한 칼로리를 나타내는 N, L(1 ≤ N ≤ 20, 1 ≤ L ≤ 104)가 공백으로 구분되어 주어진다.
+// 
+//
+//다음 N개의 줄에는 재료에 대한 민기의 맛에 대한 점수와 칼로리를 나타내는 Ti, Ki(1 ≤ Ti ≤ 103, 1 ≤ Ki ≤ 103)가 공백으로 구분되어 주어진다.
+// 
+//
+//[출력]
+//
+//각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 주어진 제한 칼로리 이하의 조합중에서 가장 맛에 대한 점수가 높은 햄버거의 점수를 출력한다.
+
+public class Problem02_햄버거다이어트 {
+
+	public static void main(String args[]) throws Exception
+	{
+		
+		System.setIn(new FileInputStream("res/input.txt"));
+
+		/*
+		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
+		 */
+		Scanner sc = new Scanner(System.in);
+		int T;
+		T=sc.nextInt();
+
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			//1. 모든 경우를 구하기
+			int caseN = sc.nextInt();
+			int maxKcal = sc.nextInt();
+			
+			
+		}
+	}
+}

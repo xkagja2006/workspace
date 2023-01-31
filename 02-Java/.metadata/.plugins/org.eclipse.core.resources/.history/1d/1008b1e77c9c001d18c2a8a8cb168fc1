@@ -1,0 +1,18 @@
+package com.ssafy.day06.exception;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class Test06 {
+	public static void main(String[] args) {
+		FileReader fr;
+		try {
+			fr = new FileReader("Test4.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		BufferedReader br = new BufferedReader(fr);
+	}
+}

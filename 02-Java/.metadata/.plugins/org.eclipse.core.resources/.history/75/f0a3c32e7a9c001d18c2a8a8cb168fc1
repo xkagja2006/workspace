@@ -1,0 +1,18 @@
+package com.ssafy.day06.exception;
+
+class App{
+	public void service() {
+		init();
+	}
+
+	private void init() {
+		// TODO Auto-generated method stub
+		System.out.println("기본정보 세팅");
+	}
+}
+public class Test05 {
+	public static void main(String[] args) {
+		App app = new App();
+		app.service();
+	}
+}

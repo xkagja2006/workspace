@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let msg = "이름은 홍길동 입니다.";
+        msg = '이름은 지영입니다.';
+        msg = '이름은"지영"입니다.';
+        let name = "홍길동";
+        let age = 10;
+        msg = "이름은"  + "name" + "입니다.";
+        //es6제공 : 템플릿 문자열 : `문자열${변수}`
+        msg = `이름은 ${name}입니다.`;
+        console.log(msg);
+
+        
+        let memberInfos = "";
+        memberInfos = `
+            <table>
+                <tr>
+                    <td>이름</td>
+                    <td>나이</td>
+                </tr>
+                <tr>
+                    <td>${name}</td>
+                    <td>${age}</td>
+                </tr>
+            </table>
+        `
+        console.log(memberInfos);
+    </script>
+
+</body>
+</html>

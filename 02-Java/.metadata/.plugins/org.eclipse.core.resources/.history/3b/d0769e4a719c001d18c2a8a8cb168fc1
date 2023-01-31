@@ -1,0 +1,20 @@
+/*
+ * try
+ * catch
+ * finally
+ * throws
+ * throw
+ * +
+ * 사용자 정의 예외(extends 예외클래스)
+ */
+package com.ssafy.day06.exception;
+
+public class Test03 {
+	public static void main(String[] args) {
+		try {
+			//예외 발생할만한 코드를 묶는다.
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

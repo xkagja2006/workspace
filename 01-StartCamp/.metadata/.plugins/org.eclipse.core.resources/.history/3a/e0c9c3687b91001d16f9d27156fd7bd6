@@ -1,0 +1,12 @@
+package com.ssafy.startcamp;
+
+public class Test06_배열요소확인 {
+	public static void main(String[] args) {
+		int[] arr = {1,2,3};
+		
+		System.out.println("1.4까지 주로 사용");
+		for(int i = 0; i < arr.length; i++) {
+			
+		}
+	}
+}

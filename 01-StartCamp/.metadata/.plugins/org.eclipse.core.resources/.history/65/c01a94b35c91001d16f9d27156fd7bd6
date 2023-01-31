@@ -1,0 +1,7 @@
+package com.ssafy.startcamp;
+
+public class test02_Switch {
+	public static void main(String[] args) {
+		
+	}
+}

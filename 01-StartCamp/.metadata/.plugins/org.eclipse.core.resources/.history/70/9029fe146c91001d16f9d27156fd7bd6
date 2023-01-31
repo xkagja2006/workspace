@@ -1,0 +1,13 @@
+package com.ssafy.startcamp;
+
+public class Test03_배열선언및생성 {
+	public static void main(String[] args) {
+		int [] array;
+		System.out.println(array);
+		array = new int[3];
+		
+/*		int[]  [] a;
+		int    [] b;
+		String [] c;*/
+	}
+}

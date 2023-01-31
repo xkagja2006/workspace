@@ -1,0 +1,21 @@
+package com.ssafy.day06.exception;
+
+import java.util.Random;
+
+class LottoNumberException extends RuntimeException{
+	
+}
+class LottoService{
+	public int makeNumber() {
+		Random r = new Random();
+		int num = r.nextInt(45) + 1;
+		if(num > 45) {
+			System.out.println("잘못된 번호 입니다.");
+		}
+	}
+}
+public class Test08 {
+	public static void main(String[] args) {
+		
+	}
+}

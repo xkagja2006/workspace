@@ -1,0 +1,11 @@
+package com.ssafy.day06.exception;
+
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String[] args) {
+		System.out.println(1/0);	//runtimeException
+		
+		Scanner sc = new Scanner(new File("a.txt"));
+	}
+}

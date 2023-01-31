@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h2>DOM event 연습하기</h2>
+    <div>
+        <!-- <button id="addBtn" onclick="addDiv()">추가</button> -->
+        <button id="addBtn">추가</button>
+    </div>
+    <div id="result">
+        <div>추가되었음</div>
+    </div>
+
+    <script>
+        let addBtn = document.querySelector('#addBtn');      //addEl : 클래스 멤버변수처럼 사용! addEl.~~ 
+        console.dir(addBtn);
+        // addBtn.onclick = addDiv;
+        addBtn.addEventListener('click', addDiv);
+        addBtn.addEventListener('click', addDiv2);
+
+        function addDiv(){
+            alert(1);
+        }
+        function addDiv2(){
+            alert(2);
+        }
+    </script>
+</body>
+</html>

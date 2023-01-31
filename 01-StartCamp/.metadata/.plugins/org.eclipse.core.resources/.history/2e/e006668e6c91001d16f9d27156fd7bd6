@@ -1,0 +1,15 @@
+package com.ssafy.startcamp;
+
+public class Test03_배열선언및생성 {
+	public static void main(String[] args) {
+		int [] array;
+		//The local variable array may not have been initialized
+		//System.out.println(array);
+		array = new int[3];
+		System.out.println(array);
+		
+/*		int[]  [] a;
+		int    [] b;
+		String [] c;*/
+	}
+}

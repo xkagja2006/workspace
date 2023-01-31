@@ -1,0 +1,15 @@
+package com.ssafy;
+
+//컴파일시 체크되는 예외
+class MyException extends Exception{
+	
+}
+//실행시에 체크되는 예되
+class MyRuntimeException extends RuntimeException{
+	
+}
+public class Test02 {
+	public static void main(String[] args) {
+
+	}
+}

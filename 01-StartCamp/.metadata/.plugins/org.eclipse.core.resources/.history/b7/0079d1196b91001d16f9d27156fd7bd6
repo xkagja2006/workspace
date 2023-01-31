@@ -1,0 +1,7 @@
+package com.ssafy.startcamp;
+
+public class Test03_배열선언및생성 {
+	public static void main(String[] args) {
+		
+	}
+}
