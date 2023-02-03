@@ -8,6 +8,10 @@ public class SpiderManTest {
 		sman.eat();
 		sman.jump();
 		sman.fireWeb();
+		
+		
+		Person p = new SpiderMan("피터", true);
+		p.jump();
 		System.out.println(sman.toString());
 	}
 }
