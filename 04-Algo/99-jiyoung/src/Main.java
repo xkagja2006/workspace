@@ -13,8 +13,19 @@ public class Main {
 		int num = Integer.parseInt(st.nextToken());
 		List<Integer> list = new LinkedList<>();
 		for (int i = 0; i < people; i++) {
-			list.add(i+1);
+			list.add(i + 1);
 		}
-		
+		int idx = -1;
+		String result = "<";
+		while (!list.isEmpty()) {
+			idx += num;
+			idx = idx%list.size();
+			result += list.get(idx) + ", ";
+//			System.out.println(result);
+			list.remove(idx);
+			idx--;
+		}
+		result = result.substring(0, result.length() - 2);
+		System.out.println(result + ">");
 	}
 }
