@@ -12,6 +12,7 @@ class Main {
 
 //		System.setIn(new FileInputStream("input.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+<<<<<<< HEAD
 		for (int i = 1; i <= 10; i++) {
 			int cnt = Integer.parseInt(br.readLine());
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
@@ -34,5 +35,26 @@ class Main {
 		arr[0]++;
 		
 		flatten(arr, n+1, cnt);
+=======
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int people = Integer.parseInt(st.nextToken());
+		int num = Integer.parseInt(st.nextToken());
+		List<Integer> list = new LinkedList<>();
+		for (int i = 0; i < people; i++) {
+			list.add(i + 1);
+		}
+		int idx = -1;
+		String result = "<";
+		while (!list.isEmpty()) {
+			idx += num;
+			idx = idx%list.size();
+			result += list.get(idx) + ", ";
+//			System.out.println(result);
+			list.remove(idx);
+			idx--;
+		}
+		result = result.substring(0, result.length() - 2);
+		System.out.println(result + ">");
+>>>>>>> 59236a801adc822cf7b3e9d629563f9561d93e46
 	}
 }
