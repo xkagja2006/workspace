@@ -1,0 +1,39 @@
+package com.ssafy.offline04;
+
+import java.util.Scanner;
+
+public class bj_2023_신기한소수 {
+
+	static int N, M, K;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		for (int v : new int[] { 2, 3, 5, 7 }) {
+			solve(v, N - 1);
+		}
+		sc.close();
+	}
+
+	static void solve(int v, int n) {
+		if (n == 0) {
+			System.out.println(v);
+			return;
+		}
+
+		for (int i = 1; i < 10; i += 2) {
+			int num = 10 * v + i;
+			if (n > 0 && isPrim(num)) {
+				solve(num, n - 1);
+			}
+		}
+	}
+
+	static boolean isPrim(int num) {
+		for (int i = 2; i * i <= num; i++)
+			if (num % i == 0)
+				return false;
+
+		return true;
+	}
+}
