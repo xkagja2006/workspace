@@ -2,7 +2,7 @@ package com.ssafy.offline07;
 
 import java.util.Scanner;
 
-public class sw_9229_한빈이와SpotMart {
+public class 이지영_SWEA_9229_한빈이와_SpotMart {
 	static int[] snacks;
 	static int[] picks = new int[2];
 	static int result, sN, maxW;
