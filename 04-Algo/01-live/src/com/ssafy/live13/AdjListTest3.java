@@ -1,4 +1,4 @@
-package com.ssafy.live12;
+package com.ssafy.live13;
 
 
 import java.util.ArrayDeque;
@@ -7,7 +7,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 
-public class AdjListTest2 {    
+public class AdjListTest3 {    
     
     static ArrayList<Integer>[] adjList;
     static int V;
