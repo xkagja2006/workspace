@@ -6,8 +6,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class bj_3109_빵집 {
-	static int[] dx = { -1, 0, 1 };
-	static int[] dy = { 1, 0, 1 };
 	static String[][] map;
 	static boolean[][] visited;
 	static int R, C, ans;
@@ -23,29 +21,36 @@ public class bj_3109_빵집 {
 			map[i] = sc.next().split("");
 		System.out.println(Arrays.deepToString(map));
 
-		dfs(0, 0);
+		for(int i = 0; i < C; i++) {
+			int t = 0;
+			dfs(i, 0, t);
+			ans += t;
+		}
 		System.out.println(ans);
 	}
 
-	private static void dfs(int x, int y) {
-		while (true) {
-			for (int i = 0; i < 3; i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-
-				if (nx == R || ny == C || nx == -1 || ny == -1)
-					return;
-				if (visited[nx][ny])
-					return;
-				if (map[nx][ny].equals("x"))
-					return;
-				visited[nx][ny] = true;
-				if (ny == C - 1) {
-					ans++;
-					return;
-				}
-				dfs(nx, ny);
-			}
+	private static void dfs(int r, int c, int t) {
+		if(t != 0) return;
+		// 정답인 경우
+		if (c == C - 1) {
+			t++;
+			return;
 		}
+
+		// 위쪽 대각선
+		else if (r - 1 >= 0 && c + 1 < C && map[r - 1][c + 1].equals(".")) {
+			dfs(r - 1, c + 1, t);
+		}
+
+		// 오른쪽
+		else if (c + 1 < C && map[r][c + 1].equals(".")) {
+			dfs(r, c + 1, t);
+		}
+
+		// 아래 대각선
+		else if (r + 1 < R && c + 1 < C && map[r + 1][c + 1].equals(".")) {
+			dfs(r + 1, c + 1, t);
+		} else
+			return;
 	}
 }
