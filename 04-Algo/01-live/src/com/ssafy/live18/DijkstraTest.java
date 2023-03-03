@@ -52,7 +52,13 @@ public class DijkstraTest {
 
 			// step2 : 위에서 선택된 정점을 경유지로 해서 갈 수 있는 다른 미방문 인접정점과의 비용 최소값 갱신
 			for (int j = 0; j < V; j++) {
-				// 아래 조건에서 !visited[j]는 생략 가능하다. distance[j] > min + adjMatrix[current][j] 조건에서 걸러지기 때문에
+				// 아래 조건에서 !visited[j]는 생략 가능하다.
+				// distance[j] > min + adjMatrix[current][j] 조건에서 걸러짐.
+				// 위의 식이 성립한다는 것은 직행으로 가는게 아니라 다른 정점을 거치는게 더 이득이라는 뜻.
+				// 그렇다면 j정점은 방문된적이 없을 것이다.
+				// 방문 되었다면 무조건 j정점으로 바로 가는것이 더 이득이었을텐데 다른데를 거쳐서 j로 갔기때문에 j는 방문되지 않은것.
+				// greedy한 성질이 있다. j정점의 방문이 끝났다(true이다)라는 것은 j정점에 대한 최적값을 구하는것이 끝났다는 것.
+				// 뒤돌아보지않는다.(변경할 일이 없다.)
 				if (!visited[j] && adjMatrix[current][j] != 0 && distance[j] > min + adjMatrix[current][j]) {
 					distance[j] = min + adjMatrix[current][j];
 				}
