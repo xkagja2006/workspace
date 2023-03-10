@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+            상대적 : rem, em, %
+                루트(html) : rem
+                부모 : em, % [1em == 100%] ,,,, ex[em은 대문자 M기준, ex는 소문자 x기준이라고 한다!]
+
+            절대적 : px (스크린의 해상도에 따라 차지하는 면적이 달라진다.)
+
+        */
+      .container {
+        width: 600px;
+        border: 10px solid rebeccapurple;
+        margin: 0 auto;
+        /* height: 200px; */
+
+        /*자식의 크기에 따라 동적으로 변하는 부모의 높이를 설정할 때*/
+
+        overflow: hidden;
+      }
+
+      .container > div,
+      .container > span {
+        width: 100px;
+        height: 100px;
+        border: 10px solid rgb(49, 49, 49);
+        font-size: 50px;
+        color: blue;
+
+        /* float 설정을 하면서 inline 요소인 span의 display속성이 block으로 바뀐다.
+            개발자도구에서 computed속성을 확인하면 알 수 있다.
+        */
+        float: left;
+      }
+      h1 {
+        /* float의 영향을 받지 않게 한다. */
+        clear: right;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <h1>4</h1>
+
+      <div>1</div>
+      <div>2</div>
+    </div>
+  </body>
+</html>

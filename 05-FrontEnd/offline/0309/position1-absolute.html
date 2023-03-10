@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="position.css" />
+    <style>
+      /*
+        position : static, relative, absolute, fixed, sticky
+        기본값 : static(좌표 안됨) -> top, left등 좌표를 지정할 수 없다.
+        static 외에는 모두 좌표를 이용해서 위치를 지정한다.
+        - top, left, right, bottom
+
+
+        */
+      .pos1 {
+        /*
+        position : absolute
+        자신의 상위의 엘리먼트 중에서 좌표기준으로 설정이 되어있는(static이 아닌) 엘리먼트를 찾아서 기준으로 삼는다.
+        부모를 relative 0 0으로 설정해서 기준을 만든다.
+        */
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        top: 50%;
+        left: 50%;
+        border: 15px solid black;
+        /* border-radius: 50%; */
+      }
+      .pos1 > button {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+      }
+      .pos1 > button:hover {
+        background-color: aliceblue;
+        cursor: pointer;
+      }
+      .parent {
+        position: relative;
+        height: 300px;
+      }
+      .pos2 {
+        /* position: relative; */
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+      }
+      body {
+        min-height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>위</h1>
+    <div class="parent">
+      <div class="pos1">1<button onclick="posHide()">X</button></div>
+      <div class="pos2">2</div>
+      <div class="pos3">3</div>
+    </div>
+    <h1>아래</h1>
+    <script>
+      function posHide() {
+        alert('닫기 작업 해야함');
+        document.querySelector('.pos1').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

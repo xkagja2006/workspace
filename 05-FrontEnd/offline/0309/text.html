@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div[class^='text'] {
+        width: 300px;
+        height: 15px;
+        padding: 10px;
+        border: 3px solid rgb(165, 165, 144);
+        border-top: 3px solid rgb(0, 0, 0);
+      }
+      .text-indent-minus {
+        text-indent: -100px;
+      }
+      .text-align-center {
+        text-align: center;
+      }
+      .text-align-left {
+        text-align: left;
+      }
+      .text-align-right {
+        text-align: right;
+      }
+      .box {
+        height: 100px;
+        border: 1px solid rgb(0, 255, 255);
+      }
+      span {
+        border: 1px solid rebeccapurple;
+      }
+      p {
+        height: 50px;
+        width: 200px;
+        border: 1px solid red;
+        margin: 0 auto;
+        /* block형을 정렬할때는 자기 자신을 바꿔야 한다 -> p태그 자기자신에 margin을 준다.*/
+        /* inline형을 정렬할때는 부모를 바꿔야 한다 -> span태그의 부모 .text-align-left 에 text-align으로 설정한다.*/
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      input:checked + span {
+        text-decoration: line-through;
+      }
+      p.text-elip {
+        border-color: black;
+        padding: 10px;
+        width: 400px;
+        /* overflow: auto; */
+
+        /* 
+        텍스트가 넘칠 때 말줄임표(...)으로 보이게 해준다.
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text-elip">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, blanditiis esse temporibus
+      similique rerum unde porro quas quisquam maxime ipsum nisi? Distinctio voluptate unde sunt
+      voluptates explicabo a cum aspernatur.
+    </p>
+    <div>
+      <div>
+        <input type="checkbox" name="lang" />
+        <span>asdf</span>
+      </div>
+      <a href="www.naver.com">네이버</a>
+      <a href="www.naver.com">네이버2</a>
+      <a href="www.naver.com">네이버3</a>
+      <div class="text-indent-minus">text-indent-minus</div>
+      <div class="text-align-center">text-align-center</div>
+      <div class="text-align-left"><span>text-align-left</span></div>
+      <div class="text-align-right">text-align-right</div>
+      <div class="box text-align-right"><p>block-p</p></div>
+    </div>
+  </body>
+</html>
