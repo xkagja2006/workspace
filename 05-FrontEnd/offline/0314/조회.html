@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn_area,
+      #list {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="btn_area"> -->
+    <div id="a">id a</div>
+    <div class="b" name="c">class b, name c</div>
+    <div class="b">class b</div>
+    <div class="b" name="c">class b, name c</div>
+    <!-- </div> -->
+    <script>
+      /*
+        조회
+          - 일반적으로 사용권장(좀 더 빨라서)
+        document.getElementById
+        document.getElementByName
+        document.getElementByTagName
+        document.getElementByClassName
+        
+          - 복잡한 구조에서 찾을 때
+        document.querySeletor
+        document.querySeletorAll
+
+        생성
+        document.createElement
+        document.createTextNode
+
+        추가
+        appendChild
+        append
+
+        속성
+        객체.속성명 = 값;
+        객체["속성명"] = 값;
+        객체.setAttribute("속성명", 값);  // 사용자 정의 속성 추가할 때
+
+        속성 조회
+        객체.속성명 
+        객체["속성명"]
+        객체.getAttribute("속성명")
+
+        Event
+        인라인이벤트 - 엘리먼트 설정
+          - 콜백함수의 첫번째 인자에 이벤트객체가 넘어온다.
+          - e.target 으로 이벤트 발생 객체를 얻어온다.
+          프로퍼티 설정(on이벤트타입명)
+          메서드 설정(addEventListner)
+
+        삭제
+        부모객체.removeChild(삭제할 자식객체)
+        삭제할객체.remove
+        
+      */
+
+      // 1. getElementById
+      let ele = document.getElementById('a');
+      ele.innerText += ' selected';
+
+      // 2.
+      let ele2 = document.getElementsByName('c');
+      console.dir(ele2);
+
+      // in 은 key값을 가져옴.
+      // of 는 값을 가져옴.
+      for (let e of ele2) {
+        e.innerText += ' selected2';
+      }
+
+      // 가장 부모 요소를 찾아온다!!
+      // 그래서 다른 요소들을 묶고있는 <div class="btn_area">를 주석처리해야한다.
+      // 그리고 getElementsBy~~ 함수는 document객체에 정의된 함수이므로
+      // document.getElementsByTagName.getElementsByTagName('div'); 은 불가능하다!
+      // document.getElementsByTagName 으로 받은 반환타입은 HTMLCollection이기 떄문!
+
+      //3.
+      let ele3 = document.getElementsByTagName('div');
+      console.dir('ele3 : ' + ele3);
+      for (let e of ele3) {
+        e.innerText += ' selected3';
+      }
+
+      //4.
+      let ele4 = document.getElementsByClassName('b');
+      console.dir(ele4);
+      for (let e of ele4) {
+        e.innerText += ' selected4';
+      }
+
+      //5. querySeletor
+      let ele5 = document.querySelector('#a');
+      console.dir(ele5);
+      ele5.innerText += ' selected5';
+      //6.
+      let ele6 = document.querySelectorAll('[name=c]');
+      for (let e of ele6) {
+        e.innerText += ' selected6';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn_area,
+      #list {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn_area">
+      <button id="btn1" onclick="doAdd()">추가</button>
+    </div>
+    <div id="list"></div>
+    <script>
+      function doAdd() {
+        let member1 = {};
+        let member2 = new Object();
+
+        // member1에 setAttribute라는 property가 없다. -> 사용자 정의 객체에 없음!
+        // document의 element자체에 setAttribute가 있다.
+        // member1.setAttribute('');
+
+        let imgEle = document.createElement('img');
+        // 속성 추가하기
+        imgEle.src = './css3.png';
+        imgEle.width = 50;
+        // 사용자 정의 속성에서는 하이픈-을 붙이기로 한다.
+        // data-속성명
+        // dataset에 추가해준다.
+        imgEle.msg = '사용자 추가속성';
+        imgEle.setAttribute('msg1', '추가속성');
+
+        imgEle.setAttribute('data-msg1', '추가속성');
+        console.dir(imgEle.dataset.msg1);
+
+        console.log('imgEle.msg', imgEle.msg);
+        document.getElementById('list').appendChild(imgEle);
+      }
+    </script>
+  </body>
+</html>

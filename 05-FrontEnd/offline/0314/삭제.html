@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box--line {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn_area">
+      <div>
+        <button id="addBtn">추가</button>
+      </div>
+      <div id="list">
+        <!-- <div class='box--line'>
+          <p>삭제 연습입니다.</p>
+          <button>삭제</button>
+        </div> -->
+      </div>
+    </div>
+    <script>
+      let cnt = 0;
+      let addBtn = document.getElementById('addBtn');
+      addBtn.addEventListener('click', function () {
+        let divEl = document.createElement('div');
+
+        // 클래스를 설정할때는 class가 아닌 className으로 설정해야한다.
+        // JS에 이미 class예약어가 있기 때문에.
+        // divEl.class = 'box--line'; //안됨
+        // divEl.className = 'box--line'; //가능
+        // divEl['class'] = 'box--line';  //안됨
+        // divEl['className'] = 'box--line'; // 가능
+        divEl.setAttribute('class', 'box--line'); // 가능! 오히러 className이라고 하면 안된다.
+
+        //백틱` 을 쓰는 이유 : 문자열 중간에 변수를 넣을 수 있다. 줄바꿈을 할 수 있다.
+        // 몇번째 삭제버튼이 클릭되었는지 알아내야함. -> this를 넣어준다.
+        divEl.innerHTML = `
+          <p>삭제 연습입니다. ${cnt++}</p>
+          <button onclick="doDel(this)">삭제</button>
+          `;
+
+        document.getElementById('list').appendChild(divEl);
+      });
+
+      // 함수 정의 방법 세가지
+      // let doDel = function () {};
+      // let doDel = () => {};
+      function doDel(_this) {
+        console.dir(_this);
+        console.dir(_this.parentNode);
+
+        // //removeChild
+        // _this.parentNode.parentNode.removeChild(_this.parentNode);
+        // let delEl = _this.parentNode;
+        // delEl.parentNode.removeChild(delEl);
+
+        //remove
+        _this.parentNode.remove();
+      }
+    </script>
+  </body>
+</html>

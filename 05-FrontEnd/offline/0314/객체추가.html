@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn_area,
+      #list {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn_area">
+      <!-- 1. 인라인 방식 -->
+      <button id="addBtn" onclick="addH2()">Click</button>
+      <!-- 2. 프로퍼티 방식 -->
+      <button id="addBtn2">Click2</button>
+    </div>
+    <div id="list"></div>
+    <script>
+      /*
+        document.createElement
+        document.createTextNode
+        appendChild
+        innerHTML
+        innerText
+
+        이벤트 설정 방식
+      - 인라인 (엘리먼트에 직접 설정)
+      - 프로퍼티 : on이벤트타입
+      - 메서드 : addEventListner()
+       */
+      // 버튼이 눌릴 때 h2엘리먼트를 생성해서 아이디가 list인 div에 추가한다.
+
+      function addH22() {
+        /*
+          1. <h2></h2> 엘리먼트 추가
+          let h2Ele = document.createElement("h2");
+          
+          2. 추가 라는 글씨를 만듦
+          let h2Text = document.createTextNode("추가");
+
+          3. 따로따로 메모리에 있는 것들을 합침(텍스트를 태그 안에 넣어야함)
+          h2Ele.appendChild(h2Text);
+
+          4. id = "list"인 div를 찾음 - 두가지 방식으로 찾을 수 있다.
+          1번 : document.getElementById("list");
+          2번 : document.querySelector("#list");
+          let listEle = document.getElementById("list")
+          
+          4. id = "list"인 div에 만든거 추가함
+          listEle.appendChild(h2Ele);
+        */
+        let h2Ele = document.createElement('h2');
+
+        let h2Text = document.createTextNode('추가');
+
+        h2Ele.appendChild(h2Text);
+
+        let listEle = document.getElementById('list');
+        listEle.appendChild(h2Ele);
+      }
+
+      // <div><input/></div> 형태로 만들어서 list에 추가해주는 함수
+      // 추가되었을때 맨 마지막 것만 새로 생기기 때문에 기존 내용은 보존된다.
+      // listEle.innerHTML += '<div><input/></div> '; 을 통해 이를 구현하면 기존 input안의 내용은 다 날아간다.
+      function addH2() {
+        let divEle = document.createElement('div');
+        let inputEle = document.createElement('input');
+
+        divEle.appendChild(inputEle);
+
+        let listEle = document.getElementById('list');
+        listEle.appendChild(divEle);
+      }
+
+      // 프로퍼티 방식
+      // 여기서 function(){} -> 콜백함수!
+      let btn2 = document.getElementById('addBtn2');
+      btn2.onclick = function () {
+        let listEle = document.getElementById('list');
+
+        // 한번만 추가하는게 아니라 계속 추가해야 하기 때문에 자기자신에 더해준다.
+        // 매번 새롭게 모든 것을 추가하기 때문에 전체 DOM을 변경하게 된다.
+        listEle.innerHTML += '<h2>추가</h2>';
+      };
+
+      // 그래서 innerHTML을 통해 편리하게 div에 input을 추가시키고
+      // DOM API를 통해 버튼을 누르면 하나씩 div가 추가되도록 하는 방법!!
+      function addH222() {
+        let divEle = document.createElement('div');
+
+        divEle.innerHTML = '<input/>';
+
+        let listEle = document.getElementById('list');
+        listEle.appendChild(divEle);
+      }
+    </script>
+  </body>
+</html>

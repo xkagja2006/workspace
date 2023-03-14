@@ -9,13 +9,13 @@ function regist() {
 
   // user 생성
   const user = {
-    id: id,
-    password: password,
-    name: name,
-    email: email,
-    age: age,
+    id: id.value,
+    password: password.value,
+    name: name.value,
+    email: email.value,
+    age: age.value,
   };
 
   // user 정보 출력
-  console.log(JSON.stringify(user));
+  console.log(user);
 }
