@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        background-color: red;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="idForm" action="/servlet/hello">
+      <input id="id2" name="id" />
+      <!-- button의 기본 타입은 submit이다! -->
+      <button>확인2</button>
+      <span id="errMsg2"></span>
+    </form>
+    <form action="/servlet/hello" onsubmit="return checkInput()">
+      <input id="id" name="id" />
+      <!-- button의 기본 타입은 submit이다! -->
+      <button>확인</button>
+      <span id="errMsg"></span>
+    </form>
+    <script>
+      let idForm = document.getElementById('idForm');
+      idForm.onsubmit = function (e) {
+        e.preventDefault();
+
+        let idEl = document.getElementById('id2');
+        if (idEl.value.trim().length !== 0) {
+          idForm.submit();
+        }
+      };
+
+      //submit될때 호출됨
+      function checkInput() {
+        let idEl = document.getElementById('id');
+        idEl.addEventListener('keyup', function (e) {
+          //e.target : idEl
+          if (idEl.value.trim().length > 0) {
+            document.getElementById('errMsg').innerText = '';
+          }
+        });
+        // alert(idEl.value);
+        if (idEl.value.trim().length === 0) {
+          let errMsg = document.getElementById('errMsg');
+          errMsg.innerText = '내용을 입력하세요';
+          errMsg.setAttribute('class', 'error');
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
