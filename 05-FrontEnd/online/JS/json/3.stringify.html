@@ -9,14 +9,27 @@
   <body>
     <script>
       let user = {
-        userid: "ssafy",
-        username: "안효인",
+        userid: 'ssafy',
+        username: '안효인',
         age: 30,
-        ssafy: { area: "서울", class: 10 },
-        student: ["김싸피", "홍싸피", "최싸피"],
+        ssafy: { area: '서울', class: 10 },
+        student: ['김싸피', '홍싸피', '최싸피'],
         profile: null,
+        info: function () {
+          console.log(this.userid);
+        },
       };
+
+      user.info();
+
+      let na = {
+        userid: 'na',
+      };
+      na.info = user.info;
+      na.info();
+
       console.dir(user);
+      user.ssafy.area;
       let userStr = JSON.stringify(user);
       console.log(userStr);
     </script>

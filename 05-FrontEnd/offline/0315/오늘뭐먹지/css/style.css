@@ -1,0 +1,50 @@
+.content {
+  background-color: rgb(211, 211, 211);
+  margin: 150px auto;
+  width: 800px;
+  height: 600px;
+}
+.btn-group {
+  padding-top: 10px;
+}
+.btn-group > button {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.btn-group > button,
+.msg-area {
+  font-size: 25px;
+  font-weight: 700;
+  display: block;
+  /* background-color: aquamarine; */
+  margin: 20px auto;
+  text-align: center;
+}
+.img-view {
+  text-align: center;
+  /* background-color: rgb(160, 160, 235); */
+}
+.img-thumb {
+  margin-top: 20px;
+  display: flex;
+  overflow: hidden;
+}
+.img-thumb > img {
+  width: 150px;
+  height: fit-content;
+  /* padding: 10px; */
+  margin: 0 auto;
+  box-sizing: border-box;
+  opacity: 0.5;
+}
+
+.img-thumb > img:hover {
+  opacity: 1;
+  border: 3px solid black;
+}
+
+.img-thumb > img.active {
+  opacity: 1;
+  border: 3px solid black;
+}

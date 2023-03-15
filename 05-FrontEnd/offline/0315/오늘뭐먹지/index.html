@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>자바스크립트 연습하기</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="btn-group">
+          <button id="randomBtn">랜덤 선택</button>
+        </div>
+        <div class="msg-area">
+          <!-- 선택된 음식의 이름이 보이는 부분입니다. -->
+          <label>오늘의 메뉴 : </label><span id="foodName"></span>
+        </div>
+        <div class="img-view">
+          <!-- 선택한 이미지가 보이는 부분입니다.-->
+          <img width="400" height="300" src="./images/cake.jpg" />
+        </div>
+        <div class="img-thumb">
+          <!-- images 배열 밑의 4개의 이미지가 보이는 영역입니다.(썸네일 영역)  -->
+          <img id="1" width="200" height="150" src="./images/cake.jpg" alt="케이크" />
+          <img id="2" width="200" height="150" src="./images/burger.jpg" alt="햄버거" />
+          <img id="3" width="200" height="150" src="./images/sandwich.jpg" alt="샌드위치" />
+          <img id="4" width="200" height="150" src="./images/steak.jpg" alt="스테이크" />
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
