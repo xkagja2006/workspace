@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        float: left;
+        list-style-type: none;
+        margin: 1.2rem;
+        padding: 1.2rem;
+        background-color: antiquewhite;
+        width: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">회원정보가져오기</button>
+    <div id="memberList">
+      <ul id="memberUl"></ul>
+    </div>
+    <script>
+      let btn = document.getElementById('btn');
+      btn.addEventListener('click', () => {
+        //member.txt파일의 내용 가져오기
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // console.log('xhr상태확인', xhr.status, xhr.statusText);
+            // console.log(typeof JSON.parse(xhr.responseText));
+            let members = JSON.parse(xhr.responseText);
+            let html = '';
+            for (let i = 0; i < members.length; i++) {
+              let m = members[i];
+              html += `
+                <li>
+                    <span>
+                        <a href="">${m.id}</a>
+                        <a href="">${m.name}</a>
+                        </span>
+                    </li>
+                `;
+
+              document.getElementById('memberUl').innerHTML = html;
+              console.log(m.id, m.name);
+            }
+            document.getElementById('memberUl');
+          }
+        };
+        xhr.open('GET', 'member.txt');
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>

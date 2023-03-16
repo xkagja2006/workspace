@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      let xhr = new XMLHttpRequest(); // 객체 생성
+      // 처리를 위한 콜백
+      xhr.onreadystatechange = function () {
+        // readyState : 0 ~ 4
+        // 데이터가 다 전송되었으면 처리하게 한다.
+        // 잘 전송되었으면 200의 상태를 가진다.
+        if (xhr.readyState === 4 && xhr.status == 200) {
+          // xhr.responseText : 응답 결과
+        } else {
+          // 처리중 이미지 출력되게 한다.
+        }
+      };
+
+      // form태그를 통한 메소드는 GET, POST밖에 안되지만 ajax를 통해서는 다섯가지가 가능하다.
+      // GET방식의 경우에는 URL 뒤에 ?뒤에 추가정보를 붙인다.
+      //   xhr.open(
+      //     '요청방식(GET / POST / PUT / DELETE / PATCH)',
+      //     'URL?QueryString',
+      //     '동기/비동기 여부(기본값 비동기)'
+      //   );
+      xhr.open('GET', '/idcheck?id=a');
+      xhr.send();
+      //   xhr.send('id = a'); // POST방식일 경우 추가정보를 send에 붙여서 호출한다.
+    </script>
+  </head>
+  <body></body>
+</html>
