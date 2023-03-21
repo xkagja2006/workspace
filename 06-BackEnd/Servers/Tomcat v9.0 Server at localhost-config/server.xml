@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="basic_servlet" path="/basic" reloadable="true" source="org.eclipse.jst.jee.server:basic_servlet"/><Context docBase="temp" path="/temp" reloadable="true" source="org.eclipse.jst.jee.server:temp"/><Context docBase="offline" path="/offline" reloadable="true" source="org.eclipse.jst.jee.server:offline"/><Context docBase="board1_servlet" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:board1_servlet"/></Host>
+      <Context docBase="basic_servlet" path="/basic" reloadable="true" source="org.eclipse.jst.jee.server:basic_servlet"/><Context docBase="offline" path="/offline" reloadable="true" source="org.eclipse.jst.jee.server:offline"/><Context docBase="basic_jsp" path="/basic2" reloadable="true" source="org.eclipse.jst.jee.server:basic_jsp"/><Context docBase="board0_form" path="/board0_form" reloadable="true" source="org.eclipse.jst.jee.server:board0_form"/><Context docBase="board2_jsp" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:board2_jsp"/><Context docBase="ssafy-board" path="/ssafy-board" reloadable="true" source="org.eclipse.jst.jee.server:ssafy-board"/></Host>
     </Engine>
   </Service>
 </Server>

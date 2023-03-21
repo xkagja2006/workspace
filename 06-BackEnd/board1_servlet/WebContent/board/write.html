@@ -22,14 +22,7 @@
           </h2>
         </div>
         <div class="col-lg-8 col-md-10 col-sm-12">
-        
-        <!-- 
-        	경로가  / 로 시작할 경우 port번호 뒷부분을 변경한다.
-        	action="/write" 인 경우
-        	http://localhost:8080/write
-         -->
-         
-          <form id="form-register" method="POST" action="/board/write">
+          <form id="form-register" method="POST" action="">
             <div class="mb-3">
               <label for="userid" class="form-label">작성자 ID : </label>
               <input
@@ -80,7 +73,7 @@
           return;
         } else {
           let form = document.querySelector("#form-register");
-          //form.setAttribute("action", "/board/write");
+          form.setAttribute("action", "/board/register");
           form.submit();
         }
       });

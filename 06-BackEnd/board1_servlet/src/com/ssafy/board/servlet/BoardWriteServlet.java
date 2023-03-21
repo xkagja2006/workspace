@@ -9,39 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ssafy.board.dao.BoardDao;
 import com.ssafy.board.dao.BoardDaoImpl;
 import com.ssafy.board.model.BoardDto;
 
-@WebServlet("/write")
+@WebServlet("/register")
 public class BoardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-//		0. 파라미터 한글 처리
-//		get방식은 한글처리를 알아서 해준다. 근데 post는 한글처리를 꼭 따로 해줘야한다.
+       
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
-//		1. 작성자 아이디, 글제목, 글내용을 얻으세요.
-		String userid = request.getParameter("userid"); // html의 form태그에서 보낸 name 속성값과 매핑하기
-		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
+//		1. 작성자아이디, 글제목, 글내용을 얻으세요. 
 		BoardDto boardDto = new BoardDto();
-		boardDto.setuserid(userid);
-		boardDto.setSubject(subject);
-		boardDto.setContent(content);
-
-//		2. 1의 data를 BoardDao의 writeArticle()메소드에 전달하고 DB에 insert 하세요.
-		BoardDaoImpl dao = new BoardDaoImpl();
-		int result = dao.writeArticle(boardDto); // 1이면 성공, 0이면 실패
-
+		boardDto.setUserId(request.getParameter("userid"));
+		boardDto.setSubject(request.getParameter("subject"));
+		boardDto.setContent(request.getParameter("content"));
+		
+//		2. 1의 data를 BoardDao의 writeArticle(BoardDto)메소드에 전달하고 DB에 insert 하세요.
+		int cnt = BoardDaoImpl.getBoardDao().writeArticle(boardDto); // 0 or 1
+		
 //		3. 2의 결과에 따라 결과 화면을 출력하세요.
-//		response.setContentType("text/html");
-//		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"ko\">");
 		out.println("  <head>");
@@ -66,9 +55,7 @@ public class BoardWriteServlet extends HttpServlet {
 		out.println("          </h2>");
 		out.println("        </div>");
 		out.println("        <div class=\"col-lg-8 col-md-10 col-sm-12\">");
-
-		if (result == 1) {
-//		성공했을 때 출력될 내용
+		if(cnt != 0) {
 			out.println("          <div class=\"card text-center bg-light\">");
 			out.println("            <h2 class=\"fw-bold text-primary pt-3\">등록 완료!!!</h2>");
 			out.println("            <div class=\"card-body\">");
@@ -79,7 +66,6 @@ public class BoardWriteServlet extends HttpServlet {
 			out.println("            </div>");
 			out.println("          </div>");
 		} else {
-//		실패했을 때 출력될 내용
 			out.println("          <div class=\"card text-center bg-light\">");
 			out.println("            <h2 class=\"fw-bold text-danger pt-3\">등록 실패T.T</h2>");
 			out.println("            <div class=\"card-body\">");
@@ -93,7 +79,6 @@ public class BoardWriteServlet extends HttpServlet {
 			out.println("            </div>");
 			out.println("          </div>");
 		}
-
 		out.println("        </div>");
 		out.println("      </div>");
 		out.println("    </div>");
@@ -104,12 +89,11 @@ public class BoardWriteServlet extends HttpServlet {
 		out.println("    ></script>");
 		out.println("    <script>");
 		out.println("      document.querySelector(\"#btn-list\").addEventListener(\"click\", function () {");
-		out.println("        location.href = \"\";");
+		out.println("        location.href = \"/board/list\";");
 		out.println("      });");
 		out.println("    </script>");
 		out.println("  </body>");
 		out.println("</html>");
-
 	}
 
 }
