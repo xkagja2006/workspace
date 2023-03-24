@@ -1,0 +1,17 @@
+프로젝트명
+	- src
+		- com
+			- ssafy
+				- month_text
+					- util
+						DBUtil
+					- board
+						- controller
+						- model
+							DTO Class
+							- dao
+								DAO interface
+								DAO impl
+							- service
+								Service interface
+								Service impl
