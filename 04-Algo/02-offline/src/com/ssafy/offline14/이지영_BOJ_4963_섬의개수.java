@@ -7,7 +7,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_S2_4963_섬의개수 {
+public class 이지영_BOJ_4963_섬의개수 {
 	static int[][] map;
 	static int W = -1;
 	static int H = -1, ans;
