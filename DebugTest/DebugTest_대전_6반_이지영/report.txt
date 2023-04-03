@@ -1,7 +1,0 @@
-자바 관련 프로그램을 작성하다 보면 개발자의 실수로 코드 작성 예외가 발생한다. 
-발생하는 예외들 중 RuntimeException을 상속받은 예외들이 있는데, 
-이런 런타임 예외를 상속 받은 예외를 3가지 이상 적고, 발생하는 이유를 서술하시오.(15점, 부분 채점 됨)
-
-1. ArithmeticException : 0으로 나눴을때 발생하는 예외.
-2. IndexOutOfBoundsException : 접근할 수 없는 인덱스에 접근하려고 시도할때 발생하는 예외.
-3. EmptyStackException : Stack이 비어있는상태에서 pop(), peek()등으로 Stack의 요소에 접근하려고 시도할때 발생하는 예외.
