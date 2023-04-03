@@ -1,7 +1,9 @@
 package com.ssafy.sample.controller;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,7 +16,7 @@ import com.ssafy.sample.dto.Member;
 import com.ssafy.sample.model.service.MemberService;
 import com.ssafy.sample.model.service.MemberServiceImpl;
 
-@WebServlet("/member")
+@WebServlet("/member2")
 public class MemberController extends HttpServlet {
 
 	private MemberService memberService;

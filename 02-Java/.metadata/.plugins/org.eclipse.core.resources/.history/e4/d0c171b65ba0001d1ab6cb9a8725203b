@@ -1,9 +1,0 @@
-package com.ssafy.day09;
-
-public class Weather {
-	private int hour;
-	private int temp;
-	private String wfKor;	//날씨 상태
-	private String wdKor;	//바람 방향
-	
-}
