@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="mybatis/db.prorerties" />
+	<properties resource="mybatis/db.properties" />
 
 	<typeAliases>
 		<typeAlias alias="member"
@@ -15,14 +15,14 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
-				<property name="username" value="${ssafy}" />
-				<property name="password" value="${ssafy}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
 	</environments>
 
 	<mappers>
-		<mapper resource="mapper/text1.xml" />
+		<mapper resource="mapper/test1.xml" />
 	</mappers>
 </configuration>
 

@@ -12,24 +12,29 @@ public class Member {
 	private Date joinDate;
 	private String [] addrs;
 	private List<String> addrs2;
-	
-	public String getEmail() {
-		return tel;
-	}
-	public void setEmail(String email) {
-		this.tel= email;
-	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
-		this.id= id;
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
-		this.name= name;
+		this.name = name;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	public Date getJoinDate() {
 		return joinDate;
@@ -37,19 +42,12 @@ public class Member {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-	public String getAddr() {
-		return area;
-	}
-	public void setAddr(String addr) {
-		this.area = addr;
-	}
 	public String[] getAddrs() {
 		return addrs;
 	}
-	public void setAddrs(String [] addrs) {
+	public void setAddrs(String[] addrs) {
 		this.addrs = addrs;
 	}
-	
 	public List<String> getAddrs2() {
 		return addrs2;
 	}
@@ -61,4 +59,6 @@ public class Member {
 		return "Member [id=" + id + ", name=" + name + ", area=" + area + ", tel=" + tel + ", joinDate=" + joinDate
 				+ ", addrs=" + Arrays.toString(addrs) + ", addrs2=" + addrs2 + "]";
 	}
+	
+	
 }

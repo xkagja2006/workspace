@@ -30,6 +30,22 @@ public class 순조부 {
 
 	}
 
+	private static void subset3(int cnt) {
+		if (cnt == N) {
+			for (int i = 0; i < N; i++) {
+				if (!visited[i])
+					continue;
+				System.out.print(input[i] + " ");
+			}
+			System.out.println();
+			return;
+		}
+		visited[cnt] = true;
+		subset3(cnt + 1);
+		visited[cnt] = false;
+		subset3(cnt + 1);
+	}
+
 	private static void subset() {
 		for (int i = 1; i < (1 << N); i++) {
 			for (int j = 0; j < N; j++) {
