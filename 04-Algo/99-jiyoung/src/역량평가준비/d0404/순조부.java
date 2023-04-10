@@ -55,7 +55,6 @@ public class 순조부 {
 			}
 			System.out.println();
 		}
-
 	}
 
 	private static void subset2() {

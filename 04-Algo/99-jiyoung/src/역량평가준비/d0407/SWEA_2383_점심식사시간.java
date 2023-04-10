@@ -70,7 +70,7 @@ public class SWEA_2383_점심식사시간 {
 					// 계단을 내려가고 있는경우
 					if (persons.get(i)[2] > time && persons.get(i)[4] == 1) {
 						persons.get(i)[3] = time - persons.get(i)[3];
-						if(persons.get(i)[3] == K)
+//						if(persons.get(i)[3] == K)
 					}
 				}
 			}
