@@ -1,0 +1,63 @@
+package com.ssafy.enjoytrip.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.ssafy.enjoytrip.dto.Attraction;
+import com.ssafy.enjoytrip.dto.Favorite;
+import com.ssafy.enjoytrip.dto.Sido;
+import com.ssafy.enjoytrip.util.DBUtil;
+import com.ssafy.paging.model.Page;
+
+public class AttractionDaoImpl implements AttractionDao {
+	private static AttractionDao instance = new AttractionDaoImpl();
+	private SqlSessionFactory sqlSessionFactory;
+	private static String NS = "resource.mapper.attraction";
+
+	private AttractionDaoImpl() {
+		sqlSessionFactory = DBUtil.getSqlSessionFactory();
+	}
+
+	public static AttractionDao getInstance() {
+		return instance;
+	}
+
+	@Override
+	public List<Attraction> selectAttraction() throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Attraction> list = sqlSession.selectList(NS + ".selectAttractionList");
+		return list;
+	}
+
+	@Override
+	public List<Sido> selectSido() throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Sido> list = sqlSession.selectList(NS + ".selectSidoList");
+		return list;
+	}
+
+	@Override
+	public List<Favorite> selectFavoriteById(String id) throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Favorite> list = sqlSession.selectList(NS + ".selectFavoriteByIdList", id);
+		return list;
+	}
+
+	@Override
+	public List<Attraction> selectAttractionBySido(String sido, Page page) throws SQLException {
+		Map<String, Object> map = new HashMap<>();
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Attraction> list = sqlSession.selectList(NS + ".selectAttractionBySidoList", sido, page);
+		return list;
+	}
+
+}

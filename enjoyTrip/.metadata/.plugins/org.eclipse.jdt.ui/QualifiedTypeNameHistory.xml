@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.ssafy.paging.model.service.BoardService"/>
+<fullyQualifiedTypeName name="com.ssafy.paging.service.BoardServiceImpl"/>
+<fullyQualifiedTypeName name="com.ssafy.paging.model.Page"/>
+<fullyQualifiedTypeName name="com.ssafy.paging.model.dao.BoardDao"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.ssafy.paging.model.dao.BoardDaoImpl"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.mapper.attraction">
+	<resultMap id="test" type="sido">
+		<result column="sido_code" property="sidoCode" jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_name" property="sidoName" jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_img" property="sidoImg" jdbcType="VARCHAR" javaType="String"></result>
+	</resultMap>
+
+
+	<!-- sqlMapconfig파일에서 alias설정 가능 -->
+	<select id="selectSidoList" resultType="sido">
+		select * from sido
+	</select>
+	<select id="selectList" resultType="sido">
+		select * from sido
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

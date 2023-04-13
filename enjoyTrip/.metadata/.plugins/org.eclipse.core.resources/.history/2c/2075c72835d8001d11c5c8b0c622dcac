@@ -1,0 +1,42 @@
+package com.ssafy.enjoytrip.service;
+
+import java.util.List;
+
+import com.ssafy.enjoytrip.dao.AttractionDao;
+import com.ssafy.enjoytrip.dao.AttractionDaoImpl;
+import com.ssafy.enjoytrip.dto.Attraction;
+import com.ssafy.enjoytrip.dto.Favorite;
+import com.ssafy.enjoytrip.dto.Sido;
+
+public class AttractionServiceImpl implements AttractionService {
+	private static AttractionService instance = new AttractionServiceImpl();
+	AttractionDao attractionDao;
+
+	private AttractionServiceImpl() {
+		attractionDao = AttractionDaoImpl.getInstance();
+	}
+
+	public static AttractionService getInstance() {
+		return instance;
+	}
+
+	@Override
+	public List<Attraction> attractionList() throws Exception {
+		return attractionDao.selectAttraction();
+	}
+
+	@Override
+	public List<Sido> sidoList() throws Exception {
+		return attractionDao.selectSido();
+	}
+
+	@Override
+	public List<Attraction> AttractionListBySido(String sido) throws Exception {
+		return attractionDao.selectAttractionBySido(sido);
+	}
+
+	@Override
+	public List<Favorite> favorite(String id) throws Exception {
+		return attractionDao.selectFavoriteById(id);
+	}
+}

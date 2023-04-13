@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.mapper.attraction">
+	<resultMap id="test" type="sido">
+		<result column="sido_code" property="sidoCode"
+			jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_name" property="sidoName"
+			jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_img" property="sidoImg" jdbcType="VARCHAR"
+			javaType="String"></result>
+	</resultMap>
+
+
+	<!-- sqlMapconfig파일에서 alias설정 가능 -->
+	<select id="selectSidoList" resultType="sido">
+		select * from sido
+	</select>
+	<select id="selectAttractionList" resultType="attraction">
+		SELECT
+		i.content_id, des.homepage, des.overview, des.telname, d.cat1, d.cat2,
+		d.cat3, d.created_time, d.modified_time, d.booktour,
+		i.content_type_id, i.title, i.addr1, i.addr2, i.zipcode, i.tel,
+		i.first_image, i.first_image2, i.readcount, i.sido_code, i.gugun_code,
+		i.latitude, i.longitude, i.mlevel
+		WHERE i.content_id = d.content_id and
+		i.content_id = des.content_id
+	</select>
+	<select id="selectAttractionBySido" resultType="sido" parameterType="String">
+		select * from sido
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

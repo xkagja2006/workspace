@@ -1,0 +1,88 @@
+package com.ssafy.enjoytrip.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.ssafy.enjoytrip.dto.Attraction;
+import com.ssafy.enjoytrip.dto.Favorite;
+import com.ssafy.enjoytrip.dto.Sido;
+import com.ssafy.enjoytrip.util.DBUtil;
+
+public class AttractionDaoImpl implements AttractionDao {
+	private static AttractionDao instance = new AttractionDaoImpl(); 
+	private SqlSessionFactory sqlSessionFactory;
+	private static String NS = "resource.mapper.attraction";
+
+	private AttractionDaoImpl() {
+		sqlSessionFactory = DBUtil.getSqlSessionFactory();
+	}
+
+	public static AttractionDao getInstance() {
+		return instance;
+	}
+
+	@Override
+	public List<Attraction> selectAttraction() throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Attraction> list = sqlSession.selectList(NS + ".selectAttractionList");
+		return list;
+	}
+
+	@Override
+	public List<Sido> selectSido() throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Sido> list = sqlSession.selectList(NS + ".selectSidoList");
+		return list;
+	}
+	@Override
+	public  List<Attraction> selectAttractionBySido(String sido) throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Attraction> list = sqlSession.selectList(NS + ".selectAttractionBySidoList", sido);
+		return list;
+	}
+	@Override
+	public  List<Favorite> selectFavoriteById(String id) throws SQLException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Favorite> list = sqlSession.selectList(NS + ".selectFavoriteByIdList", sido);
+		return list;
+	}
+
+
+	public List<Favorite> selectFavoriteById2222(String id) throws SQLException {
+		try (Connection con = db.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(
+						"SELECT f.favorite_id, f.user_id, i.content_id, i.content_type_id , i.title, s.sido_name, i.first_image ,g.gugun_name\r\n"
+								+ "FROM attraction_info i, favorite f, gugun g, sido s\r\n" 
+								+ "WHERE f.user_id = ? \r\n"
+								+ "AND i.content_id = f.attraction_id\r\n" + "AND i.sido_code = s.sido_code\r\n"
+								+ "AND i.gugun_code = g.gugun_code\r\n" + "AND g.sido_code = s.sido_code\r\n"
+								+ "ORDER BY f.favorite_id desc\r\n" + ";");) {
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			List<Favorite> list = new ArrayList<>();
+			while (rs.next()) {
+				Favorite f = new Favorite();
+				// favorite_id, user_id, content_id, content_type_id, title, sido_name,
+				// gugun_name
+				f.setContentId(rs.getString("content_id"));
+				f.setContentTypeId(rs.getString("content_type_id"));
+				f.setFavoriteId(rs.getString("favorite_id"));
+				f.setGugunName(rs.getString("gugun_name"));
+				f.setSidoName(rs.getString("sido_name"));
+				f.setTitle(rs.getString("title"));
+				f.setUserId(rs.getString("user_id"));
+				f.setImg(rs.getString("first_image"));
+				list.add(f);
+			}
+			return list;
+		}
+	}
+
+}

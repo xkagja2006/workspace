@@ -65,7 +65,7 @@
 				<c:forEach var="i" begin="${pageResult.beginPage}" end="${pageResult.endPage}">
 				    <c:choose>
 				    	<c:when test="${i eq pageResult.pageNo}">
-						    <li class="active"><a href="#1">${i}</a></li>
+						    <li class="active"><a>${i}</a></li>
 				    	</c:when>
 				    	<c:otherwise>
 						    <li><a href="list3?pageNo=${i}">${i}</a></li>

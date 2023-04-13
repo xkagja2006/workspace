@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.mapper.attraction">
+	<resultMap id="test" type="sido">
+		<result column="sido_code" property="sidoCode"
+			jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_name" property="sidoName"
+			jdbcType="VARCHAR" javaType="String"></result>
+		<result column="sido_img" property="sidoImg" jdbcType="VARCHAR"
+			javaType="String"></result>
+	</resultMap>
+
+
+	<!-- sqlMapconfig파일에서 alias설정 가능 -->
+	<select id="selectSidoList" resultType="sido">
+		select * from sido
+	</select>
+	<select id="selectAttractionList" resultType="attraction">
+		SELECT
+		i.content_id, des.homepage, des.overview, des.telname, d.cat1, d.cat2,
+		d.cat3, d.created_time, d.modified_time, d.booktour,
+		i.content_type_id, i.title, i.addr1, i.addr2, i.zipcode, i.tel,
+		i.first_image, i.first_image2, i.readcount, i.sido_code, i.gugun_code,
+		i.latitude, i.longitude, i.mlevel
+		WHERE i.content_id = d.content_id and
+		i.content_id = des.content_id
+	</select>
+	<select id="selectAttractionBySidoList" resultType="sido"
+		parameterType="String">
+		SELECT i.content_id, des.homepage, des.overview,
+		des.telname, d.cat1, d.cat2, d.cat3, d.created_time, d.modified_time,
+		d.booktour, i.content_type_id, i.title, i.addr1, i.addr2, i.zipcode,
+		i.tel, i.first_image, i.first_image2, i.readcount, i.sido_code,
+		i.gugun_code, i.latitude, i.longitude, i.mlevel
+		FROM attraction_info i,
+		attraction_detail d, attraction_description des
+		WHERE i.content_id =
+		d.content_id and i.content_id = des.content_id
+		AND i.sido_code=#{sido}
+		LIMIT 20
+	</select>
+	<select id="selectAttractionBySidoList" resultType="favorite"
+		parameterType="String">
+		SELECT f.favorite_id, f.user_id, i.content_id, i.content_type_id , i.title,
+		s.sido_name, i.first_image ,g.gugun_name
+		FROM attraction_info i, favorite f, gugun g, sido
+		WHERE f.user_id = #{id}
+		AND i.content_id = f.attraction_id AND i.sido_code = s.sido_code
+		AND i.gugun_code = g.gugun_code AND g.sido_code = s.sido_code
+		ORDER BY f.favorite_id desc
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

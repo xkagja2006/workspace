@@ -1,0 +1,96 @@
+package com.ssafy.enjoytrip.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.ssafy.enjoytrip.dto.Attraction;
+import com.ssafy.enjoytrip.dto.Favorite;
+import com.ssafy.enjoytrip.dto.Sido;
+import com.ssafy.enjoytrip.dto.User;
+import com.ssafy.enjoytrip.service.AttractionService;
+import com.ssafy.enjoytrip.service.AttractionServiceImpl;
+import com.ssafy.paging.service.BoardService;
+
+@WebServlet("/attraction")
+public class AttractionController extends HttpServlet {
+
+	private static AttractionService service;
+	private static BoardService boardService;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		service = AttractionServiceImpl.getInstance();
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		doGet(req, resp);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		String path = "";
+		switch (action) {
+		case "localList":
+			path = localList(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
+			break;
+		case "attractionList":
+			path = attractionList(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
+			break;
+		case "mypage":
+			path = mypage(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	private String mypage(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			List<Favorite> list = service.favorite(((User) req.getSession().getAttribute("userInfo")).getId());
+			req.setAttribute("favorites", list);
+			return "/page/mypage/mypage.jsp";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private String attractionList(HttpServletRequest req, HttpServletResponse resp) {
+		List<Attraction> list = new ArrayList<>();
+		try {
+			list = service.attractionListBySido(req.getParameter("sido"));
+			req.setAttribute("attractions", list);
+			return "/page/attraction/attractionList.jsp";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private String localList(HttpServletRequest req, HttpServletResponse resp) {
+		List<Sido> list = new ArrayList<>();
+		try {
+			list = service.sidoList();
+			req.setAttribute("sidos", list);
+			return "/page/attraction/localList.jsp";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

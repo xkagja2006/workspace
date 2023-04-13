@@ -1,0 +1,20 @@
+package com.ssafy.enjoytrip.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.ssafy.enjoytrip.dto.Attraction;
+import com.ssafy.enjoytrip.dto.Favorite;
+import com.ssafy.enjoytrip.dto.Sido;
+
+public interface AttractionDao {
+
+	List<Attraction> selectAttraction() throws SQLException;
+
+	List<Sido> selectSido() throws SQLException;
+
+	List<Attraction> selectAttractionBySido(String sido) throws SQLException;
+
+	List<Favorite> selectFavoriteById(String id) throws SQLException;
+
+}

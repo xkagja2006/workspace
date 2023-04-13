@@ -24,7 +24,11 @@
 	<mappers>
 		<mapper resource="mapper/test1.xml" />
 	</mappers>
+	<settings>
+	<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
 </configuration>
+
 
 
 

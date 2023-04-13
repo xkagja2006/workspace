@@ -18,10 +18,11 @@ import com.ssafy.paging.model.service.BoardService;
 @WebServlet("/board/list3")
 public class List3Controller extends HttpServlet {
 	private BoardService service;
+
 	public List3Controller() {
 		service = Board2ServiceImpl.getInstance();
 	}
-	
+
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// 목록 페이지를 구성하기 위해서 목록 출력될 데이터와 하단 페이지 번호 관련
@@ -30,7 +31,7 @@ public class List3Controller extends HttpServlet {
 				page.setPageNo(Integer.parseInt(request.getParameter("pageNo")));
 			} catch (Exception e) {
 			}
-			
+
 			request.setAttribute("result", service.listBoard(page));
 			request.getRequestDispatcher("/jsp/board/list3.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -39,13 +40,3 @@ public class List3Controller extends HttpServlet {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
