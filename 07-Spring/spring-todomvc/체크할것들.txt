@@ -1,0 +1,13 @@
+1. pom.xml 기본 버전 확인하기
+  	- java
+  	- spring
+  
+2. db 사용을 위한 dependency 추가하기
+	- mysql
+	- spring-jdbc
+	
+3. root-context, servlet-context 변경
+    - component-scan 적용	
+    
+4. web.xml
+    - 한글 인코딩 추가하기    
