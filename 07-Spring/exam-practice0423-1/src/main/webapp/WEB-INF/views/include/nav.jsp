@@ -6,7 +6,7 @@
 		<li class="nav-item"><a class="nav-link" href="/board/product/registForm">상품 정보 등록</a></li>
 
 		<c:if test="${empty userInfo}">
-			<form method="post" action="member/login">
+			<form method="post" action="/board/member/login">
 			아이디 : <input type="text" name="userId">
 			비밀번호 : <input type="password" name="userPassword">
 				<button>로그인</button>
