@@ -29,27 +29,47 @@ public class BOJ_2636_치즈 {
 			}
 		}
 		map[0][0] = 2;
-		q.offer(new int[] { 0, 0 });
-		// 외부공기 설정 위한 bfs
-		bfs1();
-		
-		while(!q.isEmpty()) {
-			
-			// 가장자리 설정하기
-			for(int i = 0; i < N; i++) {
-				for(int j = 0; j < M; j++) {
-					// 외부공기(2) 와 닿아있으면 가장자리.
-					for (int k= 0; k < 4; k++) {
-						int nx = map[i][j] + dx[k];
-						int ny = map[i][j] + dy[k];
-						if (nx >= 0 && ny >= 0 && nx < N && ny < M && map[nx][ny] == 2) {
-							q.offer(new int[] {nx,ny});
-						}
+		while (true) {
+			// 1. 외부공기 설정하기
+			cnt = 0;
+			q.offer(new int[] { 0, 0 });
+			// 외부공기 설정 위한 bfs
+			bfs1();
+			if(cnt == 0) {
+				System.out.println(ans);
+				break;
+			}
+
+			// 2. 가장자리 구하기
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < M; j++) {
+					if (map[N][M] == 1) {
+						q.offer(new int[] { i, j });
+						ans += 1;
+						bfs2();
 					}
 				}
-				
+			}
+
+		}
+	}
+
+	private static void bfs2() {
+		while (!q.isEmpty()) {
+			int x = q.peek()[0];
+			int y = q.peek()[1];
+
+			for (int i = 0; i < 4; i++) {
+				int nx = x + dx[i];
+				int ny = y + dy[i];
+				if (nx >= 0 && ny >= 0 && nx < N && ny < M && map[nx][ny] == 0) {
+					map[nx][ny] = 2;
+					ans += 1;
+					q.offer(new int[] {nx,ny});
+				}
 			}
 		}
+
 	}
 
 	static int[] dx = { -1, 1, 0, 0 };
@@ -65,6 +85,8 @@ public class BOJ_2636_치즈 {
 				int ny = y + dy[i];
 				if (nx >= 0 && ny >= 0 && nx < N && ny < M && map[nx][ny] == 0) {
 					map[nx][ny] = 2;
+					cnt += 1;
+					q.offer(new int[] { nx, ny });
 				}
 			}
 		}
