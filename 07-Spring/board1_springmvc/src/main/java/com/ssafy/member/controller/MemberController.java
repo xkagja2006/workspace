@@ -1,5 +1,6 @@
 package com.ssafy.member.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -35,9 +36,34 @@ public class MemberController {
 
 	// 실제 로그인
 	@PostMapping("login")
-	public String login(@RequestParam("userid") String userId, @RequestParam("userpwd") String userPwd, Model model,
+	public String login(HttpServletResponse response, @RequestParam("userid") String userId, @RequestParam("userpwd") String userPwd, Model model,
 			HttpSession session) throws Exception {
 		MemberDto memberDto = memberService.loginMember(userId, userPwd);
+		
+//		Cookie cookie = new Cookie("username", username);
+//	    cookie.setMaxAge(24 * 60 * 60); // 쿠키의 유효기간을 설정 (초 단위, 여기서는 24시간)
+//	    response.addCookie(cookie);
+		
+//		cookie 설정 
+//		String idsave = request.getParameter("saveid");
+//		if("ok".equals(idsave)) { //아이디 저장을 체크 했다면.
+//			Cookie cookie = new Cookie("ssafy_id", userId);
+//			cookie.setPath(request.getContextPath());
+//			cookie.setMaxAge(60 * 60 * 24 * 365 * 40); //40년간 저장.
+//			response.addCookie(cookie);
+//		} else { //아이디 저장을 해제 했다면.
+//			Cookie cookies[] = request.getCookies();
+//			if(cookies != null) {
+//				for(Cookie cookie : cookies) {
+//					if("ssafy_id".equals(cookie.getName())) {
+//						cookie.setMaxAge(0);
+//						response.addCookie(cookie);
+//						break;
+//					}
+//				}
+//			}
+//		}
+		
 		if (memberDto != null) {
 			session.setAttribute("userinfo", memberDto);
 			return "redirect:/";
