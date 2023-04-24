@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.springtest.model.dao.AttendanceDao">
+
+	<!-- List<Attendance> selectAttendance(User user) throws SQLException; void 
+		deleteAttendance(String ano) throws SQLException; void insertAttendance(Attendance 
+		attendance) throws SQLException; Attendance selectAttendanceByPK(String ano) 
+		throws SQLException; -->
+	<select id="selectAttendance" parameterType="user"
+		resultType="attendance">	<!-- 한개의 행에 대한 타입을 써주면 된다. -->
+		select ano, userid, issuedate, issue
+		from attendance
+		<if test="position == '교육생'">	<!-- 파라미터 타입이 user하나이기때문에 알아서 getPosition처리를 해준다. -->
+			where userid = #{userid}
+		</if>
+	</select>
+
+	<resultMap type="attendance" id="attendanceDetailMap">
+		<result column="ano" property="ano" /> <!-- 둘이 같을때는 생략 가능 -->
+		<result column="userid" property="userid" />
+		<result column="issuedate" property="issuedate" />
+		<result column="issue" property="issue" />
+		<association property="user" column="userid" select="selectUserByPK" />
+		<!-- association은 1:1의 관계일때 사용함. 1:N이면 collection을 써준다. -->
+	</resultMap>
+
+	<select id="selectAttendanceByPK" parameterType="string"
+		resultMap="attendanceDetailMap">
+		select a.ano, a.userid, a.issuedate, a.issue,
+		from attendance a
+		where a.ano = #{ano}
+	</select>
+	<select id="selectUserByPK" parameterType="string"
+		resultType="user">
+		select name, userid, userpw, rname, rclass, position
+		from
+		userinfo
+		where userid = #{userid}
+	</select>
+	<insert id="insertAttendance" parameterType="attendance">
+		insert into attendance(ano, issuedate, issue, userid)
+		values(#{ano}, #{issuedate}, #{issue}, #{userid})
+		<!-- parameterType 클래스의 getter메소드에서 get을 뺀 것을 넣는다. (첫글자는 소문자로) -->
+	</insert>
+	<delete id="deleteAttendance">	<!-- 파라미터가 스트링 한개면 #{}안에 무슨 값을 넣어도 상관없다. -->
+		delete from attendance
+		<!-- where ano = #{ano} -->
+		where ano in
+		<foreach item="ano" collection="anos" open="(" close=")"
+			separator="">
+			${ano}
+		</foreach>
+	</delete>
+
+</mapper>
