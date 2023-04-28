@@ -40,7 +40,8 @@
 			<div class="mt-3">
 				<ul>
 					<c:forEach var="file" items="${article.fileInfos}">
-						<li>${file.originalFile} <a href="#" class="filedown" sfolder="${file.saveFolder}" sfile="${file.saveFile}" ofile="${file.originalFile}">[다운로드]</a>
+<%-- 					<li>${file.originalFile} <a href="#" class="filedown" sfolder="${file.saveFolder}" sfile="${file.saveFile}" ofile="${file.originalFile}">[다운로드]</a> --%>
+						<li>${file.originalFile} <a href="${root}/file/download/${file.saveFolder}/${file.originalFile}/${file.saveFile}" class="filedown">[다운로드]</a>
 					</c:forEach>
 				</ul>
 			</div>
