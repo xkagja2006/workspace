@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- plusCount()함수를 못찾는다. -> Vue에 있는 함수이기 때문에 -->
+      <button onclick="plusCount()">plus</button>
+      <!-- v- : vue에 있는걸 쓰겠다. 뷰가 알고있는 방식으로 이벤트를 설정해야한다.-->
+      <button v-on:click="minusCount">minus</button>
+      <!-- v-on: 을 @로 대체할 수 있다. -->
+      <button @click="minusCount">minus</button>
+      <h1>{{count}}</h1>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return { count: 9999999999999998 };
+        },
+        methods: {
+          plusCount() {
+            this.count++;
+            console.log("plus");
+          },
+          minusCount() {
+            // this : 뷰 인스턴스에 접근
+            this.count--;
+            console.log("minus");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
