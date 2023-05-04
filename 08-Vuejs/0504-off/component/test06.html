@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>props test</h2>
+      <child-component propsdata="안녕하세요"></child-component>
+      <!-- 동적 props -->
+      <child-component v-bind:propsdata="message"></child-component>
+      <ssafy-area name="대전" cnt="5"></ssafy-area>
+      <ssafy-area name="서울" cnt="18"></ssafy-area>
+      <ssafy-area name="부울경" cnt="2"></ssafy-area>
+    </div>
+    <script>
+      //하위 컴포넌트
+      Vue.component("childComponent", {
+        props: ["propsdata"], // 이름으로 줄때면 간단하게 배열로 준다.
+        template: "<span>{{ propsdata }}</span>",
+      });
+
+      Vue.component("ssafyArea", {
+        props: ["name", "cnt"], // 이름으로 줄때면 간단하게 배열로 준다.
+        template: "<li>지역 : {{ name }}, 반수 : {{cnt}} 개</li>",
+      });
+
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            message: "hello ssafy",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
